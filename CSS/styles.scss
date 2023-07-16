@@ -107,11 +107,13 @@ header {
     position: absolute;
     top: -10000px;
     visibility: hidden;
-    height: 50px;
+    height: 15px;
 
     display: flex;
     flex-direction: column;
     gap: 3px;
+
+    cursor: pointer;
 
     .line {
       width: 17px;
@@ -238,6 +240,9 @@ main {
   }
 
   .back-bookmark-buttons {
+    display: flex;
+    align-items: center;
+
     width: 88%;
 
     @include justifying(space-between);
@@ -247,7 +252,7 @@ main {
       text-align: center;
 
       width: 210px;
-      height: 65px;
+      height: 60px;
 
       background-color: $moderate-cyan;
 
@@ -256,19 +261,20 @@ main {
 
       cursor: pointer;
 
-      transition: ease-in-out 0.3s;
+      transition: all 0.5s;
     }
 
     .back-project-button:hover {
       background-color: $dark-cyan;
 
-      transition: ease-in-out 0.3s;
+      transition: all 0.5s;
     }
 
     .bookmark-button {
       width: 190px;
       height: 65px;
 
+      transition: all 0.4s;
       @include aligning(center);
       justify-content: space-between;
 
@@ -277,12 +283,47 @@ main {
 
       cursor: pointer;
 
-      transition: ease-in-out 0.3s;
+      svg {
+        circle {
+          fill: #2f2f2f;
+          transition: fill 0.3s ease-in-out;
+        }
+      }
+
+      &:hover circle {
+        fill: #7a7a7a;
+      }
+
+      circle.bookmarked {
+        fill: $dark-cyan;
+      }
+
+      &:hover circle.bookmarked {
+        fill: $moderate-cyan;
+      }
 
       p {
         margin: auto;
-        @include fontStyling(600, 16px, $dark-gray);
+        @include fontStyling(600, 16px, #2f2f2f);
       }
+
+      .bookmarked {
+        color: $dark-cyan;
+      }
+
+      &:hover .bookmarked {
+        color: $moderate-cyan;
+      }
+    }
+
+    .bookmark-button:hover p {
+      color: #7a7a7a;
+      transition: all 0.5s;
+    }
+
+    .bookmark-button.bookmarked {
+      width: 210px;
+      transition: all 0.4s;
     }
   }
 }
@@ -721,11 +762,6 @@ main {
 
     transition: all 0.5s;
   }
-
-  // .hidden {
-  //   visibility: hidden;
-  //   opacity: 0;
-  // }
 }
 
 @media only screen and (max-width: 1100px) {
@@ -839,9 +875,28 @@ main {
     }
 
     .sect1 {
+      h2 {
+        font-size: 24px;
+      }
       .mastercraft-logo {
         width: 60px;
         top: -29px;
+      }
+
+      .back-bookmark-buttons {
+        .back-project-button {
+          width: 190px;
+          height: 55px;
+        }
+
+        .bookmark-button {
+          width: fit-content;
+          height: fit-content;
+
+          p {
+            display: none;
+          }
+        }
       }
     }
 

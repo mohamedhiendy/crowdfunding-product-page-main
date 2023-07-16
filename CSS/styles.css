@@ -60,10 +60,11 @@ header .humburger {
   position: absolute;
   top: -10000px;
   visibility: hidden;
-  height: 50px;
+  height: 15px;
   display: flex;
   flex-direction: column;
   gap: 3px;
+  cursor: pointer;
 }
 header .humburger .line {
   width: 17px;
@@ -165,6 +166,8 @@ main {
   margin-right: 5px;
 }
 .sect1 .back-bookmark-buttons {
+  display: flex;
+  align-items: center;
   width: 88%;
   display: flex;
   justify-content: space-between;
@@ -176,34 +179,61 @@ main {
   color: #fff;
   text-align: center;
   width: 210px;
-  height: 65px;
+  height: 60px;
   background-color: hsl(176, 50%, 47%);
   border-radius: 50px;
   border: 0px;
   cursor: pointer;
-  transition: ease-in-out 0.3s;
+  transition: all 0.5s;
 }
 .sect1 .back-bookmark-buttons .back-project-button:hover {
   background-color: hsl(176, 72%, 28%);
-  transition: ease-in-out 0.3s;
+  transition: all 0.5s;
 }
 .sect1 .back-bookmark-buttons .bookmark-button {
   width: 190px;
   height: 65px;
+  transition: all 0.4s;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 50px;
   border: 0px;
   cursor: pointer;
-  transition: ease-in-out 0.3s;
+}
+.sect1 .back-bookmark-buttons .bookmark-button svg circle {
+  fill: #2f2f2f;
+  transition: fill 0.3s ease-in-out;
+}
+.sect1 .back-bookmark-buttons .bookmark-button:hover circle {
+  fill: #7a7a7a;
+}
+.sect1 .back-bookmark-buttons .bookmark-button circle.bookmarked {
+  fill: hsl(176, 72%, 28%);
+}
+.sect1 .back-bookmark-buttons .bookmark-button:hover circle.bookmarked {
+  fill: hsl(176, 50%, 47%);
 }
 .sect1 .back-bookmark-buttons .bookmark-button p {
   margin: auto;
   font-family: "Commissioner", sans-serif;
   font-weight: 600;
   font-size: 16px;
-  color: hsl(0, 0%, 48%);
+  color: #2f2f2f;
+}
+.sect1 .back-bookmark-buttons .bookmark-button .bookmarked {
+  color: hsl(176, 72%, 28%);
+}
+.sect1 .back-bookmark-buttons .bookmark-button:hover .bookmarked {
+  color: hsl(176, 50%, 47%);
+}
+.sect1 .back-bookmark-buttons .bookmark-button:hover p {
+  color: #7a7a7a;
+  transition: all 0.5s;
+}
+.sect1 .back-bookmark-buttons .bookmark-button.bookmarked {
+  width: 210px;
+  transition: all 0.4s;
 }
 
 .sect1 .mastercraft-logo {
@@ -635,9 +665,25 @@ main {
   main .section:not(:first-of-type) {
     padding: 30px;
   }
+  main .sect1 h2 {
+    font-size: 24px;
+  }
   main .sect1 .mastercraft-logo {
     width: 60px;
     top: -29px;
+  }
+  main .sect1 .back-bookmark-buttons .back-project-button {
+    width: 190px;
+    height: 55px;
+  }
+  main .sect1 .back-bookmark-buttons .bookmark-button {
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  main .sect1 .back-bookmark-buttons .bookmark-button p {
+    display: none;
   }
   main .sect2 .backed-numbers {
     flex-direction: column;

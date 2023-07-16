@@ -1,3 +1,4 @@
+// Humburger menu sidebar
 const humburger = document.querySelector(".humburger");
 const nav = document.querySelector(".nav-bar");
 const topLine = document.querySelector(".top.line");
@@ -14,3 +15,22 @@ const toggleMenu = () => {
 };
 
 humburger.addEventListener("click", toggleMenu);
+
+// Bookmark btn checked
+const bookmark = document.querySelector(".bookmark-button");
+const bookmarkBtn = document.querySelector(".bookmark-button svg circle");
+const bookmarkCaption = document.querySelector(".bookmark-button p");
+
+const bookmarked = () => {
+  bookmark.classList.toggle("bookmarked");
+  bookmarkBtn.classList.toggle("bookmarked");
+  bookmarkCaption.classList.toggle("bookmarked");
+
+  if (bookmarkCaption.innerHTML === "Bookmark") {
+    bookmarkCaption.innerHTML = "Bookmarked";
+  } else {
+    bookmarkCaption.innerHTML = "Bookmark";
+  }
+};
+
+bookmark.addEventListener("click", bookmarked);
