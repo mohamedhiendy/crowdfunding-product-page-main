@@ -1,0 +1,892 @@
+// Setting Colors
+$black: hsl(0, 0%, 0%);
+$dark-gray: hsl(0, 0%, 48%);
+$moderate-cyan: hsl(176, 50%, 47%);
+$dark-cyan: hsl(176, 72%, 28%);
+
+// Mixin adjustments
+@mixin fontStyling($weight, $size, $color) {
+  font-family: "Commissioner", sans-serif;
+  font-weight: $weight;
+  font-size: $size;
+
+  color: $color;
+}
+
+@mixin aligning($align) {
+  display: flex;
+  align-items: $align;
+}
+
+@mixin justifying($justify) {
+  display: flex;
+  justify-content: $justify;
+}
+
+@mixin modals($position, $width, $top) {
+  width: $width;
+
+  position: $position;
+  top: $top;
+}
+
+// Header Styling
+@mixin photo-exchange($image, $covering, $padding) {
+  @include justifying(center);
+  background: $image;
+  background-size: $covering;
+  width: 100%;
+  height: 56.4vh;
+
+  padding-top: $padding;
+}
+
+// Global Adjustment
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Commissioner", sans-serif;
+  font-size: 16px;
+
+  background-color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  color: $dark-gray;
+  line-height: 27px;
+}
+
+.cyan-colored {
+  color: $moderate-cyan;
+}
+
+// Scroll bar Adjustment
+body::-webkit-scrollbar {
+  width: 0.7rem;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(35, 38, 41, 0.3);
+
+  border-radius: 0.4rem;
+}
+
+.reward-selected::-webkit-scrollbar {
+  width: 0.7rem;
+}
+
+.reward-selected::-webkit-scrollbar-thumb {
+  background-color: rgba(35, 38, 41, 0.3);
+
+  border-radius: 0.4rem;
+}
+
+header {
+  @include photo-exchange(
+    url(../images/image-hero-desktop.jpg) no-repeat,
+    cover,
+    3.4%
+  );
+
+  @include justifying(center);
+
+  .humburger {
+    position: absolute;
+    top: -10000px;
+    visibility: hidden;
+  }
+}
+
+header::before {
+  content: "";
+
+  @include modals(absolute, 100%, 0);
+
+  height: 20%;
+
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.logo-of-the-page {
+  width: 12rem;
+  z-index: 888;
+
+  margin-right: 30%;
+
+  img {
+    width: 100%;
+  }
+}
+
+nav {
+  margin-left: 20%;
+
+  display: flex;
+
+  z-index: 888;
+
+  a:nth-child(1),
+  a:nth-child(2) {
+    margin-right: 40px;
+  }
+
+  a {
+    color: #fff;
+  }
+}
+
+// Main Styling
+main {
+  margin-right: auto !important;
+  margin-left: auto !important;
+
+  @include aligning(center);
+  flex-direction: column;
+  gap: 20px;
+
+  @include modals(absolute, 50.8%, 43.5%);
+  left: 50%;
+
+  transform: translate(-50%);
+
+  z-index: 888;
+
+  padding-bottom: 80px;
+}
+
+.section {
+  width: 100%;
+  height: auto;
+
+  @include aligning(center);
+  flex-direction: column;
+
+  background-color: #fff;
+
+  border: solid 0.5px hsla(0, 0%, 0%, 0.1);
+
+  border-radius: 10px;
+}
+
+.sect1 {
+  padding-top: 60px;
+  padding-bottom: 40px;
+
+  h2 {
+    @include fontStyling(600, 1.75rem, #000);
+
+    margin-bottom: 21.15px;
+
+    text-align: center;
+
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  p {
+    margin-bottom: 50px;
+    text-align: center;
+
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .back-bookmark-buttons {
+    width: 88%;
+
+    @include justifying(space-between);
+
+    .back-project-button {
+      @include fontStyling(600, 15px, #fff);
+      text-align: center;
+
+      width: 210px;
+      height: 65px;
+
+      background-color: $moderate-cyan;
+
+      border-radius: 50px;
+      border: 0px;
+
+      cursor: pointer;
+
+      transition: ease-in-out 0.3s;
+    }
+
+    .back-project-button:hover {
+      background-color: $dark-cyan;
+
+      transition: ease-in-out 0.3s;
+    }
+
+    .bookmark-button {
+      width: 190px;
+      height: 65px;
+
+      @include aligning(center);
+      justify-content: space-between;
+
+      border-radius: 50px;
+      border: 0px;
+
+      cursor: pointer;
+
+      transition: ease-in-out 0.3s;
+
+      p {
+        margin: auto;
+        @include fontStyling(600, 16px, $dark-gray);
+      }
+    }
+  }
+}
+
+.sect1 .mastercraft-logo {
+  @include modals(absolute, 65px, -33px);
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.section:not(:first-of-type) {
+  padding: 50px;
+}
+
+.sect2 {
+  .backed-numbers {
+    width: 100%;
+
+    @include justifying(space-between);
+
+    margin-bottom: 45px;
+
+    padding-right: 19%;
+  }
+
+  .spacing {
+    height: 75px;
+    border: solid 0.1px rgba(0, 0, 0, 0.1);
+  }
+
+  .all-backers {
+    margin-left: -2.5%;
+  }
+
+  .all-backed,
+  .all-backers,
+  .days-left {
+    h2 {
+      @include fontStyling(800, 1.65rem, #000);
+      margin-bottom: 8px;
+    }
+  }
+
+  .backed-number-bar {
+    width: 100%;
+    height: 13px;
+
+    background-color: hsla(0, 0%, 85%);
+
+    border-radius: 7px;
+
+    .completion-backed-num-bar {
+      width: 86%;
+      height: 100%;
+
+      background-color: $moderate-cyan;
+
+      border-radius: 7px;
+    }
+  }
+}
+
+.sect3 {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .review-about-project {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .pledge {
+    width: 100%;
+    height: auto;
+
+    border: solid 0.5px hsla(0, 0%, 0%, 0.1);
+    border-radius: 10px;
+
+    padding: 30px 25px 30px 25px;
+
+    .pledge-heading {
+      @include justifying(space-between);
+
+      margin-bottom: 20px;
+
+      h2 {
+        font-size: 18px;
+      }
+    }
+
+    .pledge-description {
+      margin-bottom: 30px;
+    }
+
+    .pledge-information {
+      @include justifying(space-between);
+
+      .num-of-left-stands {
+        @include fontStyling(800, 30px, #000);
+        margin-right: 10px;
+      }
+
+      button {
+        @include fontStyling(600, 15px, #fff);
+        text-align: center;
+
+        width: 160px;
+        height: 50px;
+
+        background-color: $moderate-cyan;
+
+        border-radius: 50px;
+        border: 0px;
+
+        cursor: pointer;
+
+        transition: ease-in-out 0.3s;
+      }
+
+      button:hover {
+        background-color: $dark-cyan;
+
+        transition: ease-in-out 0.3s;
+      }
+    }
+  }
+}
+
+.thanks-reward-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .thanks {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: #fff;
+
+    opacity: 0;
+    visibility: hidden;
+
+    position: absolute;
+    top: -10000px;
+    left: 0;
+
+    transition: all 0.5s;
+
+    width: 36.5%;
+    height: auto;
+
+    padding: 40px;
+
+    border: solid 0.5px hsla(0, 0%, 0%, 0.1);
+
+    box-shadow: 1vb 1vb 1vb 200vb hsla(0, 0%, 0%, 0.5);
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    z-index: 9999;
+
+    .done-img {
+      width: 72px;
+      height: auto;
+
+      margin-bottom: 27px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .description {
+      margin-bottom: 27px;
+
+      h3 {
+        @include fontStyling(700, 24px, #000);
+        margin-bottom: 27px;
+      }
+    }
+
+    button {
+      @include fontStyling(600, 15px, #fff);
+      text-align: center;
+
+      width: 120px;
+      height: 45px;
+
+      background-color: $moderate-cyan;
+
+      border-radius: 50px;
+      border: 0px;
+
+      cursor: pointer;
+
+      transition: ease-in-out 0.3s;
+    }
+
+    button:hover {
+      background-color: $dark-cyan;
+
+      transition: ease-in-out 0.3s;
+    }
+  }
+
+  .thanks.visible {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    transition: all 0.5s;
+  }
+
+  .reward-selected {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    overflow-y: scroll;
+
+    background-color: #fff;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all 0.5s;
+
+    position: absolute;
+    top: -10000px;
+    left: 0;
+
+    width: 57%;
+    height: 97vh;
+
+    padding: 40px;
+
+    border: solid 0.5px hsla(0, 0%, 0%, 0.1);
+
+    box-shadow: 1vb 1vb 1vb 200vb hsla(0, 0%, 0%, 0.5);
+
+    border-radius: 10px;
+
+    text-align: left;
+
+    z-index: 999;
+
+    &-header {
+      @include justifying(space-between);
+
+      .exit-button {
+        width: 17px;
+        height: 17px;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .exit-line {
+        width: 100%;
+        height: 4px;
+        background-color: #7a7a7a;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .exit-line:first-child {
+        transform: translateY(-50%) rotate(45deg);
+        transition: all 0.5s;
+      }
+
+      .exit-line:last-child {
+        transform: translateY(-50%) rotate(-45deg);
+        transition: all 0.5s;
+      }
+
+      .exit-button:hover .exit-line {
+        background-color: #000;
+        transition: all 0.5s;
+      }
+    }
+
+    .pledge-container {
+      transition: all 0.5s;
+      border: solid 0.1px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      padding-top: 25px;
+      padding-bottom: 20px;
+    }
+
+    .pledge-with-no-reward {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .heading {
+      display: flex;
+      align-items: center;
+
+      margin-bottom: 4%;
+      margin-left: 3.5%;
+
+      .radio-button {
+        width: 30px;
+        height: 30px;
+
+        margin-right: 2%;
+
+        border-radius: 50%;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .radio-active {
+          background-color: $moderate-cyan;
+          width: 50%;
+          height: 50%;
+
+          border-radius: 50%;
+        }
+      }
+
+      .heading-description {
+        width: 99%;
+        display: flex;
+        align-items: center;
+
+        h3 {
+          margin-right: 2%;
+        }
+      }
+    }
+
+    .pledge-description {
+      margin-left: 65px;
+
+      margin-bottom: 20px;
+    }
+
+    .right-aligned {
+      padding-right: 20px;
+
+      position: relative;
+      float: right;
+
+      .num-of-left-stands {
+        @include fontStyling(900, 1.2rem, #000);
+        padding-right: 5px;
+      }
+    }
+
+    .pledge-payment {
+      @include justifying(space-between);
+      align-items: center;
+
+      transition: all 0.5s;
+
+      width: 100%;
+
+      padding-top: 20px;
+      border-top: solid 0.1px rgba(0, 0, 0, 0.2);
+
+      p {
+        margin-left: 25px;
+      }
+
+      .payment {
+        margin-right: 25px;
+
+        input {
+          height: 50px;
+          width: 120px;
+
+          cursor: pointer;
+          border: 0.1px solid $dark-gray;
+
+          transition: all 0.5s;
+
+          @include fontStyling(700, 15px, $dark-gray);
+
+          padding: 0.5rem 1rem 0.5rem 0;
+          text-align: center;
+          text-decoration: none;
+          border-radius: 30px;
+
+          margin-right: 10px;
+        }
+
+        button {
+          height: 50px;
+          width: auto;
+
+          cursor: pointer;
+          border: none;
+
+          transition: all 0.5s;
+
+          background-color: $moderate-cyan;
+
+          @include fontStyling(700, 15px, #fff);
+
+          padding: 0.7em 1.5em 0.7em;
+
+          text-align: center;
+          text-decoration: none;
+          border-radius: 30px;
+        }
+      }
+    }
+  }
+
+  .reward-selected.visible {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    transition: all 0.5s;
+  }
+
+  .visible {
+    opacity: 1;
+    visibility: visible;
+
+    transition: all 0.5s;
+  }
+
+  // .hidden {
+  //   visibility: hidden;
+  //   opacity: 0;
+  // }
+}
+
+@media only screen and (max-width: 1100px) {
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  header {
+    @include photo-exchange(
+      url(../images/image-hero-mobile.jpg) no-repeat,
+      cover,
+      5%
+    );
+
+    height: 18.75rem;
+
+    .logo-of-the-page {
+      width: 8rem;
+
+      position: relative;
+      left: 8%;
+
+      margin-right: auto;
+    }
+
+    nav {
+      position: absolute;
+      top: -10000px;
+      left: 0;
+      transition: all 0.5s;
+      width: 100vw;
+      opacity: 0;
+
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+
+      background-color: #fff;
+      width: 15rem;
+
+      border-radius: 5px;
+    }
+
+    .humburger {
+      position: relative;
+      top: auto;
+      right: 8%;
+      visibility: visible;
+    }
+  }
+
+  main {
+    width: 90%;
+
+    top: 25%;
+
+    .section:not(:first-of-type) {
+      padding: 30px;
+    }
+
+    .sect1 {
+      .mastercraft-logo {
+        width: 60px;
+        top: -29px;
+      }
+    }
+
+    .sect2 {
+      .backed-numbers {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        padding-right: 0;
+
+        text-align: center;
+
+        h2 {
+          font-size: 1.688rem;
+          margin-bottom: 0px;
+        }
+
+        .spacing {
+          margin-top: 15px;
+          margin-bottom: 15px;
+        }
+      }
+
+      .spacing {
+        height: 0;
+        width: 30%;
+      }
+    }
+
+    .pledge {
+      .pledge-heading {
+        flex-direction: column;
+
+        h2 {
+          margin-bottom: 4px;
+        }
+      }
+
+      .pledge-information {
+        flex-direction: column;
+
+        p {
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+
+  .thanks-reward-container {
+    .thanks {
+      width: 80%;
+    }
+
+    .reward-selected {
+      width: 90%;
+      height: 90vh;
+
+      .pledge-container {
+        .heading {
+          margin-bottom: 20px;
+
+          .heading-description {
+            flex-direction: column;
+            align-items: flex-start;
+
+            h3 {
+              font-size: 17px;
+            }
+          }
+        }
+
+        .pledge-description {
+          margin-left: 10px;
+          padding-right: 5px;
+        }
+
+        .right-aligned {
+          float: left;
+          margin-left: 10px;
+        }
+
+        .pledge-payment {
+          flex-direction: column;
+
+          p {
+            margin-left: auto;
+            margin-right: auto;
+
+            margin-bottom: 10px;
+          }
+
+          .payment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            margin-left: 3px;
+            margin-right: 3px;
+
+            input {
+              width: 115px;
+            }
+
+            button {
+              width: 115px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 389px) {
+  .reward-selected {
+    .pledge-container {
+      .pledge-payment {
+        .payment {
+          input {
+            margin-right: 5px;
+            margin-bottom: 10px;
+          }
+
+          button {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+}
