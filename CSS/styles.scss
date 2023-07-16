@@ -897,6 +897,10 @@ main {
             display: none;
           }
         }
+
+        .bookmark-button.bookmarked {
+          width: fit-content;
+        }
       }
     }
 

@@ -685,6 +685,10 @@ main {
   main .sect1 .back-bookmark-buttons .bookmark-button p {
     display: none;
   }
+  main .sect1 .back-bookmark-buttons .bookmark-button.bookmarked {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
   main .sect2 .backed-numbers {
     flex-direction: column;
     align-items: center;
