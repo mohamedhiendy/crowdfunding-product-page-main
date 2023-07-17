@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+::-moz-selection {
+  background: hsla(176, 72%, 28%, 0.2);
+}
+
+::selection {
+  background: hsla(176, 72%, 28%, 0.2);
+}
+
 .off-scrolling {
   overflow: hidden;
 }
@@ -37,7 +45,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .reward-selected::-webkit-scrollbar {
-  width: 0.7rem;
+  width: 0.5rem;
 }
 
 .reward-selected::-webkit-scrollbar-thumb {
@@ -349,6 +357,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100vh;
 }
 .thanks-reward-container .thanks {
   display: flex;
@@ -420,9 +429,9 @@ main {
   gap: 15px;
   overflow-y: scroll;
   background-color: #fff;
-  opacity: 0;
   visibility: hidden;
-  transition: all 0.5s;
+  opacity: 0;
+  transition: all 0.7s;
   position: absolute;
   top: -10000px;
   left: 0;
@@ -479,13 +488,13 @@ main {
 .thanks-reward-container .reward-selected .heading {
   display: flex;
   align-items: center;
-  margin-bottom: 4%;
-  margin-left: 3.5%;
+  margin-bottom: 3%;
+  margin-left: 20px;
 }
 .thanks-reward-container .reward-selected .heading .radio-button {
   width: 30px;
   height: 30px;
-  margin-right: 2%;
+  margin-right: 10px;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.2);
   display: flex;
@@ -507,7 +516,7 @@ main {
   margin-right: 2%;
 }
 .thanks-reward-container .reward-selected .pledge-description {
-  margin-left: 65px;
+  margin-left: 60px;
   margin-bottom: 20px;
 }
 .thanks-reward-container .reward-selected .right-aligned {
@@ -569,12 +578,14 @@ main {
   text-decoration: none;
   border-radius: 30px;
 }
-.thanks-reward-container .reward-selected.visible {
+.thanks-reward-container .reward-selected.opened {
+  opacity: 1;
+  visibility: visible;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: all 0.5s;
+  transition: opacity 0.5s;
 }
 .thanks-reward-container .visible {
   opacity: 1;
@@ -738,12 +749,13 @@ main {
     font-size: 17px;
   }
   .thanks-reward-container .reward-selected .pledge-container .pledge-description {
-    margin-left: 10px;
+    margin-left: 20px;
     padding-right: 5px;
   }
   .thanks-reward-container .reward-selected .pledge-container .right-aligned {
     float: left;
-    margin-left: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
   }
   .thanks-reward-container .reward-selected .pledge-container .pledge-payment {
     flex-direction: column;

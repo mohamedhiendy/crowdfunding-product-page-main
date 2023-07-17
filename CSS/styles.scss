@@ -49,6 +49,10 @@ $dark-cyan: hsl(176, 72%, 28%);
   box-sizing: border-box;
 }
 
+::selection {
+  background: hsla(176, 72%, 28%, 0.2);
+}
+
 .off-scrolling {
   overflow: hidden;
 }
@@ -85,7 +89,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .reward-selected::-webkit-scrollbar {
-  width: 0.7rem;
+  width: 0.5rem;
 }
 
 .reward-selected::-webkit-scrollbar-thumb {
@@ -262,6 +266,9 @@ main {
       cursor: pointer;
 
       transition: all 0.5s;
+
+      // appearance: unset;
+      // user-select: $dark-gray;
     }
 
     .back-project-button:hover {
@@ -463,6 +470,8 @@ main {
   align-items: center;
   justify-content: center;
 
+  height: 100vh;
+
   .thanks {
     display: flex;
     align-items: center;
@@ -557,10 +566,10 @@ main {
 
     background-color: #fff;
 
-    opacity: 0;
     visibility: hidden;
+    opacity: 0;
 
-    transition: all 0.5s;
+    transition: all 0.7s;
 
     position: absolute;
     top: -10000px;
@@ -633,14 +642,14 @@ main {
       display: flex;
       align-items: center;
 
-      margin-bottom: 4%;
-      margin-left: 3.5%;
+      margin-bottom: 3%;
+      margin-left: 20px;
 
       .radio-button {
         width: 30px;
         height: 30px;
 
-        margin-right: 2%;
+        margin-right: 10px;
 
         border-radius: 50%;
         border: 1px solid rgba(0, 0, 0, 0.2);
@@ -670,7 +679,7 @@ main {
     }
 
     .pledge-description {
-      margin-left: 65px;
+      margin-left: 60px;
 
       margin-bottom: 20px;
     }
@@ -747,13 +756,16 @@ main {
     }
   }
 
-  .reward-selected.visible {
+  .reward-selected.opened {
+    opacity: 1;
+    visibility: visible;
+
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
-    transition: all 0.5s;
+    transition: opacity 0.5s;
   }
 
   .visible {
@@ -762,6 +774,18 @@ main {
 
     transition: all 0.5s;
   }
+
+  // .opened {
+  //   opacity: 1;
+  //   visibility: visible;
+
+  //   position: fixed;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%);
+
+  //   transition: all 0.5s;
+  // }
 }
 
 @media only screen and (max-width: 1100px) {
@@ -974,13 +998,14 @@ main {
         }
 
         .pledge-description {
-          margin-left: 10px;
+          margin-left: 20px;
           padding-right: 5px;
         }
 
         .right-aligned {
           float: left;
-          margin-left: 10px;
+          margin-left: 20px;
+          margin-bottom: 10px;
         }
 
         .pledge-payment {

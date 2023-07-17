@@ -34,3 +34,25 @@ const bookmarked = () => {
 };
 
 bookmark.addEventListener("click", bookmarked);
+
+// Back this project btn
+const backProjectBtn = document.querySelector(".back-project-button");
+const rewardSelectedSection = document.querySelector(".reward-selected");
+const exitButton = document.querySelector(".exit-button");
+const reward_thanksContainer = document.querySelector(
+  ".thanks-reward-container"
+);
+
+const openSelectedReward = () => {
+  rewardSelectedSection.classList.toggle("opened");
+  body.classList.toggle("off-scrolling");
+};
+
+backProjectBtn.addEventListener("click", openSelectedReward);
+
+const getOut = () => {
+  rewardSelectedSection.classList.remove("opened");
+  body.classList.remove("off-scrolling");
+};
+
+exitButton.addEventListener("click", getOut);
